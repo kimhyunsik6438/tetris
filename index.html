@@ -417,16 +417,19 @@
             
             switch(e.code) {
                 case 'ArrowLeft':
+                    e.preventDefault();
                     if (isValidMove(currentPiece, -1, 0)) {
                         currentPiece.x--;
                     }
                     break;
                 case 'ArrowRight':
+                    e.preventDefault();
                     if (isValidMove(currentPiece, 1, 0)) {
                         currentPiece.x++;
                     }
                     break;
                 case 'ArrowDown':
+                    e.preventDefault();
                     if (isValidMove(currentPiece, 0, 1)) {
                         currentPiece.y++;
                         score += 1;
@@ -434,12 +437,14 @@
                     }
                     break;
                 case 'ArrowUp':
+                    e.preventDefault();
                     const rotated = rotatePiece(currentPiece);
                     if (isValidMove(rotated, 0, 0)) {
                         currentPiece = rotated;
                     }
                     break;
                 case 'Space':
+                    e.preventDefault();
                     while (isValidMove(currentPiece, 0, 1)) {
                         currentPiece.y++;
                         score += 2;
